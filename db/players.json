@@ -1,0 +1,43 @@
+{
+  "player1": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-431612-lauren-kelly-1572906984953655848-140.png",
+    "name": "Lauren Kelly",
+    "position": "Defense",
+    "uid": "" 
+  },
+
+  "player2": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-431621-mallory-souliotis-1572908416601711968-140.png",
+    "name": "Mallory Souliotis",
+    "position": "Defense",
+    "uid": ""
+  },
+
+  "player3": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-431611-victoria-hanson-1572908683941205198-140.png",
+    "name": "Victoria Hanson",
+    "position": "Goalie",
+    "uid": ""
+  },
+
+  "player4": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-431618-whitney-renn-1572908729346339748-140.png",
+    "name": "Whitney Renn",
+    "position": "Forward/Defense",
+    "uid": ""
+  },
+
+  "player5": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-455131-jordan-juron-1582668971257566218-140.png",
+    "name": "Jordan Juron",
+    "position": "Forward",
+    "uid": ""
+  },
+
+  "player6": {
+    "imageUrl": "https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/person-photo_url-431617-marisa-raspa-1572908490508336134-140.png",
+    "name": "Marisa Raspa",
+    "position": "Forward",
+    "uid": ""
+  }
+}
