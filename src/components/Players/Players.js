@@ -23,6 +23,7 @@ class Player extends React.Component {
         <div className="card-body">
           <h3 className="card-title">{ player.name }</h3>
           <h4 className="card-text">{ player.position }</h4>
+          <h2 className="card-header">{ player.jersey }</h2>
           <button type="button" className="btn btn-warning" onClick={this.deletePlayerEvent}>Release</button>
         </div>
       </div>
