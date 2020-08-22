@@ -9,8 +9,8 @@ class Player extends React.Component {
   render() {
     const { player } = this.props;
     return (
-      <div className="card player-card">
-        <img src={ player.imageUrl } className="card-img-top" alt="playerPort"></img>
+      <div className="card player-card text-white bg-dark mb-3 rounded">
+        <img src={ player.imageUrl } className="card-img-top rounded-circle" alt="playerPort"></img>
         <div className="card-body">
           <h3 className="card-title">{ player.name }</h3>
           <h4 className="card-text">{ player.position }</h4>

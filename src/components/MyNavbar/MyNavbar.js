@@ -23,12 +23,12 @@ class MyNavbar extends React.Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="/">Boston Pride</a>
+      <a className="navbar-brand" href="/"> <img alt=".." src="https://img.shiftstats.com/dcd7c2ef-0bf7-4a7e-a22f-e1e1a76f936c/team-logo_url-61638-pride-1566720849090260505-medium.svg"></img>Boston Pride</a>
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           {
             authed
-              ? <button className="nav-link btn btn-danger text-dark logout-button" onClick={this.logoutClickEvent}>Logout <i className="fas fa-sign-out-alt"></i></button>
+              ? <button className="nav-link btn btn-warning text-dark logout-button" onClick={this.logoutClickEvent}>Logout <i className="fas fa-sign-out-alt"></i></button>
               : <Auth />
           }
         </li>
