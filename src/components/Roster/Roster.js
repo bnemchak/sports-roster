@@ -21,9 +21,15 @@ class Roster extends React.Component {
       .catch((err) => console.error('no players', err));
   }
 
+  deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => this.getPlayers())
+      .catch((err) => console.error('cannot release players', err));
+  }
+
   render() {
     const { players } = this.state;
-    const playerCards = players.map((player) => <Players key={player.id} player={player} />);
+    const playerCards = players.map((player) => <Players key={player.id} player={player} deletePlayer={this.deletePlayer} />);
 
     return (
       <div className="Roster">
