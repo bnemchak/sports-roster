@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import authData from '../../helpers/data/authData';
+import authData from '../../helpers/data/authData';
 import playerData from '../../helpers/data/playerData';
 import Players from '../Players/Players';
 import PlayerForm from '../PlayerForm/PlayerForm';
@@ -15,12 +15,17 @@ class Roster extends React.Component {
 
   state = {
     players: [],
+    formOpen: false,
+  }
+
+  getPlayers = () => {
+    playerData.getPlayersbyUid(authData.getUid())
+      .then((player) => this.setState({ player }))
+      .catch((err) => console.error('get players broke', err));
   }
 
   componentDidMount() {
-    playerData.getPlayers()
-      .then((response) => this.setState({ players: response }))
-      .catch((err) => console.error('no players', err));
+    this.getPlayers();
   }
 
   deletePlayer = (playerId) => {
@@ -29,7 +34,7 @@ class Roster extends React.Component {
       .catch((err) => console.error('cannot release players', err));
   }
 
-  createBoard = (newPlayer) => {
+  createPlayer = (newPlayer) => {
     playerData.createPlayer(newPlayer)
       .then(() => {
         this.getPlayers();

@@ -5,8 +5,8 @@ import utils from '../utils';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getPlayers = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/players.json`)
+const getPlayersbyUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/players.json?orderBy="uid"&equalTo="${uid}"`)
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
@@ -15,4 +15,4 @@ const deletePlayer = (playerId) => axios.delete(`${baseUrl}/players/${playerId}.
 
 const createPlayer = (newPlayer) => axios.post(`${baseUrl}/players.json`, newPlayer);
 
-export default { getPlayers, deletePlayer, createPlayer };
+export default { getPlayersbyUid, deletePlayer, createPlayer };
