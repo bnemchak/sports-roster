@@ -16,11 +16,12 @@ class Roster extends React.Component {
   state = {
     players: [],
     formOpen: false,
+    editPlayer: {},
   }
 
   getPlayers = () => {
-    playerData.getPlayersbyUid(authData.getUid())
-      .then((player) => this.setState({ player }))
+    playerData.getPlayersByUid(authData.getUid())
+      .then((players) => this.setState({ players }))
       .catch((err) => console.error('get players broke', err));
   }
 
@@ -43,14 +44,31 @@ class Roster extends React.Component {
       .catch((err) => console.error('Create Player Broke', err));
   }
 
+  editAPlayer = (playerToEdit) => {
+    this.setState({ formOpen: true, editPlayer: playerToEdit });
+  }
+
+  updatePlayer = (playerId, editedPlayer) => {
+    playerData.updatePlayer(playerId, editedPlayer)
+      .then(() => {
+        this.getPlayers();
+        this.setState({ formOpen: false, editPlayer: {} });
+      })
+      .catch((err) => console.error('update player broke', err));
+  }
+
+  closeForm = () => {
+    this.setState({ formOpen: false });
+  }
+
   render() {
-    const { players, formOpen } = this.state;
-    const playerCards = players.map((player) => <Players key={player.id} player={player} deletePlayer={this.deletePlayer} />);
+    const { players, formOpen, editPlayer } = this.state;
+    const playerCards = players.map((player) => <Players key={player.id} player={player} deletePlayer={this.deletePlayer} editAPlayer={this.editAPlayer} />);
 
     return (
       <div className="Roster">
-        <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: !formOpen }); }}><i className="far fa-plus-square"></i></button>
-        { formOpen ? <PlayerForm createPlayer={this.createPlayer}/> : '' }
+        { !formOpen ? <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: true, editPlayer: {} }); }}><i className="far fa-plus-square"></i></button> : '' }
+        { formOpen ? <PlayerForm createPlayer={this.createPlayer} playerThatIAmEditing={editPlayer} updatePlayer={this.updatePlayer} closeForm={this.closeForm}/> : '' }
         <div className="card-columns">
           { playerCards }
         </div>
